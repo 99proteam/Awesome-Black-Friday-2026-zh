@@ -1,11 +1,17 @@
 """Sync a zh-TW translation of the upstream Awesome Black Friday README, line by line."""
 import hashlib
+import json
+import sys
+import urllib.request
 import re
 import unicodedata
 from collections import Counter
 from datetime import datetime
+from pathlib import Path
 from typing import Callable
 from zoneinfo import ZoneInfo
+
+import anthropic
 
 URL_RE = re.compile(r"https?://[^\s)\]>\"']+")
 CODE_BOLD_RE = re.compile(r"\*\*([A-Z0-9][A-Z0-9_\-]*)\*\*")
@@ -107,3 +113,99 @@ def render_readme(old_readme: str | None, body: str, now: datetime) -> str:
     if old_readme and MARKER in old_readme and old_readme.split(MARKER + "\n\n", 1)[-1] == body:
         return old_readme
     return disclaimer(now) + "\n" + MARKER + "\n\n" + body
+
+
+UPSTREAM_RAW = "https://raw.githubusercontent.com/trungdq88/Awesome-Black-Friday-Cyber-Monday/main/README.md"
+CACHE_FILE = "translations.json"
+README_FILE = "README.md"
+
+SYSTEM_PROMPT = """You translate lines of a Markdown README (a list of Black Friday software deals) from English into Traditional Chinese as used in Taiwan (zh-TW).
+
+Input: a JSON array of Markdown lines. Output: {"translations": [...]} with exactly one translated line per input line, same order, same count. Never merge, split, drop or add lines.
+
+Rules:
+- Translate only; do not add, remove, summarize or reword content.
+- Use Taiwan vocabulary (軟體, 影片, 折扣碼, 應用程式), never Mainland terms (软件/軟件, 視頻, 優惠碼).
+- Keep unchanged: product and company names, URLs, link targets, discount codes, prices and currency, emoji, HTML tags, Markdown syntax (|, **, [], (), #, -, >), leading/trailing whitespace, and the number of | characters.
+- Keep percentage discounts like "60% OFF" as-is; do not convert them to 折.
+- Dates: "Nov 27 - Dec 1" -> "11/27 – 12/1"; "Nov 20" -> "11/20".
+- Use full-width Chinese punctuation in Chinese prose (，。：；！？（）), but keep Markdown/HTML syntax characters ASCII.
+- If a line has nothing to translate, return it unchanged."""
+
+SCHEMA = {
+    "type": "object",
+    "properties": {"translations": {"type": "array", "items": {"type": "string"}}},
+    "required": ["translations"],
+    "additionalProperties": False,
+}
+
+
+def _translate_batch(client, batch: list[str], usage: list[int]) -> list[str] | None:
+    try:
+        resp = client.messages.create(
+            model=MODEL_ID,
+            max_tokens=16000,
+            system=SYSTEM_PROMPT,
+            output_config={"effort": "low", "format": {"type": "json_schema", "schema": SCHEMA}},
+            messages=[{"role": "user", "content": json.dumps(batch, ensure_ascii=False)}],
+        )
+    except anthropic.APIError as e:
+        print(f"warning: API error: {type(e).__name__}")
+        return None
+    usage[0] += resp.usage.input_tokens
+    usage[1] += resp.usage.output_tokens
+    if resp.stop_reason != "end_turn":
+        print(f"warning: stop_reason={resp.stop_reason}")
+        return None
+    try:
+        out = json.loads(next(b.text for b in resp.content if b.type == "text"))["translations"]
+    except (StopIteration, ValueError, KeyError, TypeError):
+        return None
+    return out if isinstance(out, list) and len(out) == len(batch) else None
+
+
+def translate_lines(client, lines: list[str], batch_size: int = 40) -> list[str | None]:
+    usage = [0, 0]
+    result: list[str | None] = []
+    for i in range(0, len(lines), batch_size):
+        batch = lines[i:i + batch_size]
+        out = _translate_batch(client, batch, usage) or _translate_batch(client, batch, usage)
+        if out is None:
+            print(f"warning: batch {i // batch_size + 1} failed twice; keeping English for {len(batch)} lines")
+        result.extend(out or [None] * len(batch))
+    print(f"translated {len(lines)} lines; usage: input={usage[0]} output={usage[1]} tokens")
+    return result
+
+
+def fetch_upstream() -> str:
+    req = urllib.request.Request(UPSTREAM_RAW, headers={"User-Agent": "zh-translation-sync"})
+    with urllib.request.urlopen(req, timeout=30) as r:
+        return r.read().decode("utf-8")
+
+
+def main() -> int:
+    try:
+        upstream = fetch_upstream()
+    except OSError as e:
+        print(f"error: fetch upstream failed: {e}")
+        return 1
+    if len(upstream) < 20_000 or "\n## " not in upstream:
+        print(f"error: upstream looks truncated ({len(upstream)} chars); aborting")
+        return 1
+    cache_path, readme_path = Path(CACHE_FILE), Path(README_FILE)
+    cache = json.loads(cache_path.read_text(encoding="utf-8")) if cache_path.exists() else {}
+    old = readme_path.read_text(encoding="utf-8") if readme_path.exists() else None
+    body = assemble(upstream, cache, lambda lines: translate_lines(anthropic.Anthropic(), lines))
+    new = render_readme(old, body, datetime.now(TZ))
+    with open(cache_path, "w", encoding="utf-8", newline="\n") as f:
+        json.dump(cache, f, ensure_ascii=False, indent=0, sort_keys=True)
+        f.write("\n")
+    with open(readme_path, "w", encoding="utf-8", newline="\n") as f:
+        f.write(new)
+    untranslated = sum(1 for l in upstream.split("\n") if needs_translation(l) and line_key(l) not in cache)
+    print(f"{'changed' if new != old else 'unchanged'}; untranslated lines: {untranslated}")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

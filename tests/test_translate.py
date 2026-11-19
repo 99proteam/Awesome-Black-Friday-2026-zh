@@ -129,3 +129,50 @@ def test_disclaimer_contents():
     d = disclaimer(T1)
     assert "https://github.com/trungdq88/Awesome-Black-Friday-Cyber-Monday" in d
     assert "claude-sonnet-5-5" in d and "（UTC+8）" in d and "2026-11-19 23:30" in d
+
+
+import json
+import os
+from types import SimpleNamespace
+import scripts.translate as tmod
+
+
+class FakeClient:
+    def __init__(self, bad_calls=()):
+        self.calls = 0
+        self.bad_calls = set(bad_calls)
+        self.messages = self
+
+    def create(self, **kw):
+        self.calls += 1
+        batch = json.loads(kw["messages"][0]["content"])
+        out = ["zh:" + l for l in batch]
+        if self.calls in self.bad_calls:
+            out = out[:-1]
+        return SimpleNamespace(
+            content=[SimpleNamespace(type="text", text=json.dumps({"translations": out}))],
+            stop_reason="end_turn",
+            usage=SimpleNamespace(input_tokens=1, output_tokens=1),
+        )
+
+
+def test_translate_lines_batches():
+    c = FakeClient()
+    res = tmod.translate_lines(c, [f"l{i}" for i in range(85)], batch_size=40)
+    assert c.calls == 3 and res == [f"zh:l{i}" for i in range(85)]
+
+
+def test_translate_lines_keeps_english_on_bad_batch():
+    c = FakeClient(bad_calls={2, 3})  # batch 2 fails, its retry fails too
+    res = tmod.translate_lines(c, [f"l{i}" for i in range(85)], batch_size=40)
+    assert res[40:80] == [None] * 40
+    assert res[:40] == [f"zh:l{i}" for i in range(40)] and res[80:] == [f"zh:l{i}" for i in range(80, 85)]
+
+
+def test_main_aborts_on_short_upstream(tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    (tmp_path / "README.md").write_text("old", encoding="utf-8")
+    monkeypatch.setattr(tmod, "fetch_upstream", lambda: "tiny")
+    assert tmod.main() == 1
+    assert (tmp_path / "README.md").read_text(encoding="utf-8") == "old"
+    assert not (tmp_path / "translations.json").exists()
