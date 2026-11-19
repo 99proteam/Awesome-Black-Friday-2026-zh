@@ -20,7 +20,7 @@ TAG_RE = re.compile(r"<[^>]+>")
 CODE_TOKEN_RE = re.compile(r"(?<![A-Za-z0-9])(?=[A-Z0-9_-]*\d)(?=[A-Z0-9_-]*[A-Z])[A-Z0-9][A-Z0-9_-]{2,}(?![A-Za-z0-9])")
 ANCHOR_RE = re.compile(r"\]\((#[^)]*)\)")
 BACKTICK_RE = re.compile(r"`[^`]+`")
-MONEY_RE = re.compile(r"[$€£¥]\s?\d[\d.,]*|\d+(?:\.\d+)?%")
+MONEY_RE = re.compile(r"[$€£¥]\s?\d+(?:[.,]\d+)*|\d+(?:\.\d+)?%")
 
 
 PREFIX_RE = re.compile(r"^\s*(?:#{1,6} |[-*+] |> |\d+\. )?")
@@ -60,8 +60,23 @@ def _invariants(line: str):
     )
 
 
+INVARIANT_NAMES = ("prefix", "urls", "bold codes", "tags", "codes", "anchors", "backticks", "money", "pipes", "emoji")
+
+
 def is_valid_translation(src: str, dst: str) -> bool:
     return _invariants(src) == _invariants(dst)
+
+
+def _broken_invariants(src: str, dst: str) -> list[str]:
+    return [n for n, a, b in zip(INVARIANT_NAMES, _invariants(src), _invariants(dst)) if a != b]
+
+
+def _restore_anchors(src: str, dst: str) -> str:
+    """The model sometimes translates TOC anchors; put the source anchors back (rewrite_anchors runs later)."""
+    want = iter(ANCHOR_RE.findall(src))
+    if len(ANCHOR_RE.findall(src)) != len(ANCHOR_RE.findall(dst)):
+        return dst
+    return ANCHOR_RE.sub(lambda m: f"]({next(want)})", dst)
 
 
 HEADING_RE = re.compile(r"^#{1,6} (.*)$")
@@ -121,7 +136,7 @@ def assemble(upstream: str, cache: dict[str, str], translate_lines: Callable[[li
         for src, dst in zip(chunk, translate_lines(chunk)):
             if dst is None:
                 api_failed += 1
-            elif is_valid_translation(src, dst):
+            elif is_valid_translation(src, dst := _restore_anchors(src, dst)):
                 cache[line_key(src)] = dst
             else:
                 invalid.append(src)
@@ -129,11 +144,12 @@ def assemble(upstream: str, cache: dict[str, str], translate_lines: Callable[[li
             for src, dst in zip(invalid, translate_lines(invalid)):
                 if dst is None:
                     api_failed += 1
-                elif is_valid_translation(src, dst):
+                elif is_valid_translation(src, dst := _restore_anchors(src, dst)):
                     cache[line_key(src)] = dst
                 else:
                     # failed validation twice: keep English and stop paying for it every run
-                    print(f"warning: keeping English after 2 invalid translations: {src[:80]}")
+                    print(f"warning: keeping English after 2 invalid translations ({', '.join(_broken_invariants(src, dst))}): "
+                          f"{src[:80]} => {dst[:80]}")
                     cache[line_key(src)] = src
     zh = [cache.get(line_key(l), l) if needs_translation(l) else l for l in en]
     return "\n".join(rewrite_anchors(en, zh)), api_failed

@@ -296,3 +296,17 @@ def test_main_prunes_stale_cache(tmp_path, monkeypatch):
     assert tmod.main() == 0
     cache = json.loads((tmp_path / "translations.json").read_text(encoding="utf-8"))
     assert "stale" not in cache and len(cache) > 100
+
+
+# --- first live run: 49 lines pinned English ---
+def test_validate_price_followed_by_punctuation():
+    assert is_valid_translation("| Lifetime $48, yearly $24. 40% off |", "| 終身 $48，年繳 $24。40% off |")
+
+
+def test_assemble_restores_translated_anchor():
+    doc = "- [🎯 Miscellaneous](#-miscellaneous)\n## 🎯 Miscellaneous\n"
+    table = {"- [🎯 Miscellaneous](#-miscellaneous)": "- [🎯 其他](#-其他)", "## 🎯 Miscellaneous": "## 🎯 其他"}
+    cache = {}
+    out, failed = assemble(doc, cache, fake([], table))
+    assert out.split("\n")[0] == "- [🎯 其他](#-其他)" and failed == 0
+    assert cache[_k("- [🎯 Miscellaneous](#-miscellaneous)")] == "- [🎯 其他](#-miscellaneous)"
