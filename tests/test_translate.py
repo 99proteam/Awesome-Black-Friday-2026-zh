@@ -310,3 +310,10 @@ def test_assemble_restores_translated_anchor():
     out, failed = assemble(doc, cache, fake([], table))
     assert out.split("\n")[0] == "- [🎯 其他](#-其他)" and failed == 0
     assert cache[_k("- [🎯 Miscellaneous](#-miscellaneous)")] == "- [🎯 其他](#-miscellaneous)"
+
+
+def test_assemble_fixes_mainland_terms_in_cached_lines():
+    src = "| Video app with coupon code |"
+    cache = {_k(src): "| 視頻應用，附優惠碼 |"}
+    out, _ = assemble(src + "\n", cache, fake([]))
+    assert out.split("\n")[0] == "| 影片應用，附折扣碼 |"

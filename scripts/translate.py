@@ -120,6 +120,17 @@ MARKER = "<!-- translation-body -->"
 TZ = ZoneInfo("Asia/Taipei")
 
 
+# Mainland terms the model occasionally slips in -> Taiwan usage. Applied at render time, so cached lines get fixed for free.
+TERM_FIXES = {"視頻": "影片", "视频": "影片", "優惠碼": "折扣碼", "软件": "軟體", "軟件": "軟體", "應用程序": "應用程式",
+              "默認": "預設", "信息": "資訊"}
+
+
+def _fix_terms(line: str) -> str:
+    for a, b in TERM_FIXES.items():
+        line = line.replace(a, b)
+    return line
+
+
 def assemble(upstream: str, cache: dict[str, str], translate_lines: Callable[[list[str]], list[str | None]],
              batch_size: int = BATCH_SIZE, max_lines: int = MAX_LINES_PER_RUN) -> tuple[str, int]:
     """Returns (body, lines left untranslated this run by API failure or the per-run cap).
@@ -151,7 +162,7 @@ def assemble(upstream: str, cache: dict[str, str], translate_lines: Callable[[li
                     print(f"warning: keeping English after 2 invalid translations ({', '.join(_broken_invariants(src, dst))}): "
                           f"{src[:80]} => {dst[:80]}")
                     cache[line_key(src)] = src
-    zh = [cache.get(line_key(l), l) if needs_translation(l) else l for l in en]
+    zh = [_fix_terms(cache.get(line_key(l), l)) if needs_translation(l) else l for l in en]
     return "\n".join(rewrite_anchors(en, zh)), api_failed
 
 
