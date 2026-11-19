@@ -16,6 +16,10 @@ import anthropic
 URL_RE = re.compile(r"https?://[^\s)\]>\"']+")
 CODE_BOLD_RE = re.compile(r"\*\*([A-Z0-9][A-Z0-9_\-]*)\*\*")
 TAG_RE = re.compile(r"<[^>]+>")
+CODE_TOKEN_RE = re.compile(r"(?<![A-Za-z0-9])(?=[A-Z0-9_-]*\d)(?=[A-Z0-9_-]*[A-Z])[A-Z0-9][A-Z0-9_-]{2,}(?![A-Za-z0-9])")
+ANCHOR_RE = re.compile(r"\]\((#[^)]*)\)")
+BACKTICK_RE = re.compile(r"`[^`]+`")
+MONEY_RE = re.compile(r"[$€£¥]\s?\d[\d.,]*|\d+(?:\.\d+)?%")
 
 
 def _is_emoji(ch: str) -> bool:
@@ -39,6 +43,10 @@ def _invariants(line: str):
         Counter(URL_RE.findall(line)),
         Counter(CODE_BOLD_RE.findall(line)),
         Counter(TAG_RE.findall(line)),
+        Counter(CODE_TOKEN_RE.findall(line)),
+        Counter(ANCHOR_RE.findall(line)),
+        Counter(BACKTICK_RE.findall(line)),
+        Counter(MONEY_RE.findall(line)),
         line.count("|"),
         Counter(ch for ch in line if _is_emoji(ch)),
     )
@@ -89,15 +97,32 @@ MARKER = "<!-- translation-body -->"
 TZ = ZoneInfo("Asia/Taipei")
 
 
-def assemble(upstream: str, cache: dict[str, str], translate_lines: Callable[[list[str]], list[str | None]]) -> str:
+def assemble(upstream: str, cache: dict[str, str], translate_lines: Callable[[list[str]], list[str | None]],
+             batch_size: int = 40) -> tuple[str, int]:
+    """Returns (body, number of lines lost to API failures). Mutates `cache` batch by batch."""
     en = upstream.split("\n")
     todo = list(dict.fromkeys(l for l in en if needs_translation(l) and line_key(l) not in cache))
-    if todo:
-        for src, dst in zip(todo, translate_lines(todo)):
-            if dst is not None and is_valid_translation(src, dst):
+    api_failed = 0
+    for i in range(0, len(todo), batch_size):
+        chunk = todo[i:i + batch_size]
+        invalid = []
+        for src, dst in zip(chunk, translate_lines(chunk)):
+            if dst is None:
+                api_failed += 1
+            elif is_valid_translation(src, dst):
                 cache[line_key(src)] = dst
+            else:
+                invalid.append(src)
+        if invalid:
+            for src, dst in zip(invalid, translate_lines(invalid)):
+                if dst is not None and is_valid_translation(src, dst):
+                    cache[line_key(src)] = dst
+                else:
+                    # failed validation twice: keep English and stop paying for it every run
+                    print(f"warning: keeping English after 2 invalid translations: {src[:80]}")
+                    cache[line_key(src)] = src
     zh = [cache.get(line_key(l), l) if needs_translation(l) else l for l in en]
-    return "\n".join(rewrite_anchors(en, zh))
+    return "\n".join(rewrite_anchors(en, zh)), api_failed
 
 
 def disclaimer(now: datetime) -> str:
@@ -127,7 +152,7 @@ Rules:
 - Translate only; do not add, remove, summarize or reword content.
 - Use Taiwan vocabulary (軟體, 影片, 折扣碼, 應用程式), never Mainland terms (软件/軟件, 視頻, 優惠碼).
 - Keep unchanged: product and company names, URLs, link targets, discount codes, prices and currency, emoji, HTML tags, Markdown syntax (|, **, [], (), #, -, >), leading/trailing whitespace, and the number of | characters.
-- Keep percentage discounts like "60% OFF" as-is; do not convert them to 折.
+- Keep numbers as written (e.g. 15,000+); keep percentage discounts like "60% OFF" as-is; do not convert them to 折.
 - Dates: "Nov 27 - Dec 1" -> "11/27 – 12/1"; "Nov 20" -> "11/20".
 - Use full-width Chinese punctuation in Chinese prose (，。：；！？（）), but keep Markdown/HTML syntax characters ASCII.
 - If a line has nothing to translate, return it unchanged."""
@@ -195,11 +220,17 @@ def main() -> int:
     cache_path, readme_path = Path(CACHE_FILE), Path(README_FILE)
     cache = json.loads(cache_path.read_text(encoding="utf-8")) if cache_path.exists() else {}
     old = readme_path.read_text(encoding="utf-8") if readme_path.exists() else None
-    body = assemble(upstream, cache, lambda lines: translate_lines(anthropic.Anthropic(), lines))
+    client = anthropic.Anthropic(timeout=300)
+    try:
+        body, api_failed = assemble(upstream, cache, lambda lines: translate_lines(client, lines))
+    finally:  # keep every paid translation, even if the run crashes or times out
+        with open(cache_path, "w", encoding="utf-8", newline="\n") as f:
+            json.dump(cache, f, ensure_ascii=False, indent=0, sort_keys=True)
+            f.write("\n")
+    if api_failed:
+        print(f"::error::{api_failed} lines failed at the API; README not updated (cache progress saved)")
+        return 1
     new = render_readme(old, body, datetime.now(TZ))
-    with open(cache_path, "w", encoding="utf-8", newline="\n") as f:
-        json.dump(cache, f, ensure_ascii=False, indent=0, sort_keys=True)
-        f.write("\n")
     with open(readme_path, "w", encoding="utf-8", newline="\n") as f:
         f.write(new)
     untranslated = sum(1 for l in upstream.split("\n") if needs_translation(l) and line_key(l) not in cache)

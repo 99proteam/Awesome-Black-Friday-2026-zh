@@ -84,11 +84,11 @@ def fake(calls, table=ZH):
 
 def test_assemble_uses_cache_and_translates_misses():
     cache, calls = {}, []
-    out1 = assemble(DOC, cache, fake(calls))
+    out1, _ = assemble(DOC, cache, fake(calls))
     assert "## 🔥 生產力" in out1 and "快速的 App。" in out1
     assert len(calls[0]) == 2
     calls2 = []
-    out2 = assemble(DOC, cache, fake(calls2))
+    out2, _ = assemble(DOC, cache, fake(calls2))
     assert out2 == out1
     assert all(c == [] for c in calls2)
 
@@ -97,13 +97,13 @@ def test_assemble_keeps_english_on_invalid():
     bad = dict(ZH)
     bad["|  ⭐ | [A](https://a.com) | Fast app. | **BF26** |"] = "|  ⭐ | A | 快速的 App。 | **BF26** |"
     cache = {}
-    out = assemble(DOC, cache, fake([], bad))
+    out, _ = assemble(DOC, cache, fake([], bad))
     assert "| Fast app. |" in out
-    assert _k("|  ⭐ | [A](https://a.com) | Fast app. | **BF26** |") not in cache
+    assert cache[_k("|  ⭐ | [A](https://a.com) | Fast app. | **BF26** |")] == "|  ⭐ | [A](https://a.com) | Fast app. | **BF26** |"
 
 
 def test_assemble_passthrough():
-    out = assemble(DOC, {}, fake([]))
+    out, _ = assemble(DOC, {}, fake([]))
     lines = out.split("\n")
     assert lines[1] == "" and lines[2] == "| -- | --- |"
     assert lines[4] == '| <a href="https://a.com"><img src="https://a.com/i.png"></a> |'
@@ -176,3 +176,64 @@ def test_main_aborts_on_short_upstream(tmp_path, monkeypatch):
     assert tmod.main() == 1
     assert (tmp_path / "README.md").read_text(encoding="utf-8") == "old"
     assert not (tmp_path / "translations.json").exists()
+
+
+# --- final review fixes ---
+ROW = "|  ⭐ | [A](https://a.com) | Fast app. | **BF26** |"
+
+
+def test_validate_rejects_plain_code_change():
+    s = "| Chat UI.<br/>BLACKFRIDAY2026<br/> |"
+    assert not is_valid_translation(s, "| 聊天介面。<br/>BLACKFRIDAY2025<br/> |")
+
+
+def test_validate_rejects_anchor_change():
+    assert not is_valid_translation("- [Tools](#-tools)", "- [工具](#-工具)")
+
+
+def test_validate_rejects_price_change():
+    assert not is_valid_translation("| Lifetime ($190 → $95) |", "| 終身授權（$19 → $95） |")
+
+
+def test_validate_rejects_backtick_change():
+    assert not is_valid_translation("| Use `BF26` at checkout |", "| 結帳時使用 `BF25` |")
+
+
+def test_assemble_saves_progress_before_crash():
+    cache, n = {}, [0]
+    def tr(lines):
+        n[0] += 1
+        if n[0] == 2:
+            raise RuntimeError("boom")
+        return [ZH.get(l) for l in lines]
+    try:
+        assemble(DOC, cache, tr, batch_size=1)
+    except RuntimeError:
+        pass
+    assert _k("## 🔥 Productivity") in cache
+
+
+def test_assemble_retries_invalid_once_then_caches_english():
+    cache, calls = {}, []
+    bad = {ROW: "|  ⭐ | A | 快 | **BF26** |"}
+    out, failed = assemble(ROW + "\n", cache, fake(calls, bad))
+    assert len(calls) == 2 and failed == 0
+    assert cache[_k(ROW)] == ROW  # stop paying for it every run
+
+
+def test_assemble_reports_api_failures():
+    cache = {}
+    out, failed = assemble(ROW + "\n", cache, lambda lines: [None] * len(lines))
+    assert failed == 1 and _k(ROW) not in cache
+
+
+def test_main_api_failure_exits_nonzero_keeps_readme(tmp_path, monkeypatch):
+    big = Path("tests/fixtures/upstream.md").read_text(encoding="utf-8")
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setenv("ANTHROPIC_API_KEY", "test")
+    (tmp_path / "README.md").write_text("old", encoding="utf-8")
+    monkeypatch.setattr(tmod, "fetch_upstream", lambda: big)
+    monkeypatch.setattr(tmod, "translate_lines", lambda client, lines: [None] * len(lines))
+    assert tmod.main() == 1
+    assert (tmp_path / "README.md").read_text(encoding="utf-8") == "old"
+    assert (tmp_path / "translations.json").exists()
