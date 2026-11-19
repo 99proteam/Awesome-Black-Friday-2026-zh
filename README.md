@@ -1,7 +1,7 @@
 > [!NOTE]
 > - 本清單為 [trungdq88/Awesome-Black-Friday-Cyber-Monday](https://github.com/trungdq88/Awesome-Black-Friday-Cyber-Monday) 的中文翻譯，僅供輔助閱讀。
 > - 翻譯由 Claude Sonnet 5.5（`claude-sonnet-5-5`）自動產生，建議搭配原版查看，如有歧異以原版為準。
-> - 中文版最後更新：2026-11-19 23:12（UTC+8）
+> - 中文版最後更新：2026-11-19 23:14（UTC+8）
 
 <!-- translation-body -->
 
@@ -148,7 +148,7 @@
 | 🧭 | [Starlie](https://starlie.app/?ref=Awesome-Black-Friday-Cyber-Monday) | 適用於 Jira Cloud 和自行架設 Jira 的原生 Mac 應用程式：在真正的 Mac 視窗中進行 JQL 搜尋、衝刺看板和議題編輯，而不是瀏覽器分頁。 | 終身版 **50% OFF**，無需折扣碼：Mac App Store 上 **$49.99 → $24.99 USD**，2026 年 11/24 – 12/1。一次性購買。 |
 | 📌 | [Forma](https://useforma.app) | 用於每日任務和專案規劃的自由畫布：Markdown 卡片、檢查清單和標記筆。原生 macOS 應用程式，免費使用，可一次性升級 Pro（無限看板、卡片顏色、iCloud 同步、PDF 匯出）。 | 終身 Pro **47% OFF**（$14.99 → $7.99），使用折扣碼 **BLACKFRIDAY50**，在應用程式中透過「Have a code?」兌換（2026 年 11/20 – 12/1） |
 | 🗒️ | [Outliner](https://outliner.app/pricing?ref=Awesome-Black-Friday-Cyber-Monday) | 將 Apple 備忘錄、提醒事項、行事曆、郵件、訊息和聯絡人整合在同一個視窗的 Mac 應用程式：卡片、跨所有內容搜尋、每個人和每一天各有一張卡片，並可寫回備忘錄、提醒事項和行事曆。它讀取的內容絕不會上傳。閱讀免費；一次性購買，絕不訂閱。 | Outliner Pro **30% OFF**，使用折扣碼 **BLACKFRIDAY26**：~~$29~~ **$20.30**，2026 年 11/13 – 11/30。一次性購買。 |
-| 📝 | [Smolpad](https://smolpad.com/?ref=Awesome-Black-Friday-Cyber-Monday) | 適用於 Mac、iPhone、iPad 和 Apple Watch 的 Markdown 筆記。在 Mac 上常駐選單列，一個按鍵即可開啟。每則筆記都是存放在您自己的 iCloud Drive、Dropbox、pCloud 或 Google Drive 中的純 .md 檔案，不會被綁定。免費使用，可一次性解鎖 Pro。 | Smolpad Pro 終身版 **50% OFF**：~~$29.99~~ **$14.99**，使用 App Store 優惠碼 **BLACKFRIDAY**，透過[此連結](https://apps.apple.com/redeem?ctx=offercodes&id=6792438749&code=BLACKFRIDAY)兌換。一次購買涵蓋 Mac、iPhone、iPad 和 Apple Watch。**至 2026 年 12/1** |
+| 📝 | [Smolpad](https://smolpad.com/?ref=Awesome-Black-Friday-Cyber-Monday) | 適用於 Mac、iPhone、iPad 和 Apple Watch 的 Markdown 筆記。在 Mac 上常駐選單列，一個按鍵即可開啟。每則筆記都是存放在您自己的 iCloud Drive、Dropbox、pCloud 或 Google Drive 中的純 .md 檔案，不會被綁定。免費使用，可一次性解鎖 Pro。 | Smolpad Pro 終身版 **50% OFF**：~~$29.99~~ **$14.99**，使用 App Store 折扣碼 **BLACKFRIDAY**，透過[此連結](https://apps.apple.com/redeem?ctx=offercodes&id=6792438749&code=BLACKFRIDAY)兌換。一次購買涵蓋 Mac、iPhone、iPad 和 Apple Watch。**至 2026 年 12/1** |
 | ✅ | [Pippin](https://usepippin.com/pricing/?ref=Awesome-Black-Friday-Cyber-Monday) | 會自己撰寫並維護的 Mac 待辦清單：它讀取您螢幕上的文字並隨時更新清單，讓您不必手動輸入任務。使用您自己的 AI 方案運作（ChatGPT、Claude Max/Team 或 OpenRouter）。需要 macOS 15+、Apple 晶片。 | 終身版 **51% OFF**，無需折扣碼：~~$59~~ **$29 USD**，至 2026 年 12/2。一次性購買。 |
 | 🧩 | [Aevo](https://aevo.so/en/pricing?ref=Awesome-Black-Friday-Cyber-Monday) | 任務與筆記看板：磚塊大小代表工作量，位置代表優先順序，一再延後的任務會被標記。放大任何任務，它就會變成擁有子任務、筆記和檔案的獨立看板。連結您的行事曆，看看一天中實際能排進哪些事。提供網頁版、Windows 和 Mac 版本。提供免費方案。 | Pro 終身版 **25% OFF**，使用折扣碼 **BLACKFRIDAY26LIFETIME**：~~€199~~ **€149** 一次性付費；或 1 年方案 **30% OFF**，使用折扣碼 **BLACKFRIDAY26**：~~€70~~ **€49**。**2026 年 11/27 – 11/30** |
 | 🧱 | [Craft](https://www.craft.do/pricing?ref=Awesome-Black-Friday-Cyber-Monday) | 將筆記、文件和任務整合在一個適用於 Mac、iPhone 和 iPad 的原生應用程式。單一文件即可包含白板、程式碼、Mermaid 圖表、數學公式和資料庫（Craft 集合），還能發佈到網路並使用您自己的網域。AI 可使用裝置端模型離線且完全私密地運作、連接您的外部 AI 工具，或使用您自己的 API 金鑰（BYOK）。 | 年繳 Plus（$8 → $4.80/月，美國價格；各地區價格不同）和 Family **40% OFF**，使用折扣碼 **BLACKFRIDAY26-A**；月繳 **20% OFF**，使用折扣碼 **BLACKFRIDAY26-M**。每次續訂都保有折扣。2026 年 11/16 – 12/9。免費方案維持免費。 |
@@ -510,7 +510,7 @@
 | 🖥️ | [Lingon Pro](https://www.peterborgapps.com/lingon) | 使用 Lingon Pro，隨時執行您想執行的任何項目。Lingon Pro 讓排程應用程式、腳本、捷徑和指令變得簡單。幾分鐘內建立任務，依排程執行，並隨時掌控。 | **20% OFF** ~~$23.99~~ **$19.19**（自動套用）11/23 – 11/30, 2026|
 | 📷 | [ShutterMinder](https://shutterminder.com/?utm_source=tonybf) | ShutterMinder 會在通話結束時提醒您關閉網路攝影機的遮蓋。此應用程式會在您的 Mac 上透過鏡頭查看約一秒鐘，絕不會儲存或傳送任何影像。ShutterMinder 也可以將您的麥克風靜音。支援內建和 USB 攝影機，無需帳號，無分析追蹤。 | Mac App Store 一次買斷 **50% OFF**，~~$9.99~~ **$4.99**，自動套用，至 **2026 年 11/30** |
 | 🎞️ | [Fast Video Frame Grabber](https://fast-video-frame-grabber.codystools.online/?utm_source=github&utm_medium=listing&utm_campaign=blackfriday&utm_content=awesome-black-friday) | 逐格瀏覽資料夾中的影片，按下 E 即可將畫面上的確切影格儲存為完整解析度的 PNG、JPEG 或 WebP，然後繼續處理下一個片段。支援 Mac、Windows 和 Linux；離線運作，無需帳號。 | **30% OFF**：~~$19~~ **$13.30**，適用於 Mac、Windows 和 Linux 的一次買斷授權，使用折扣碼 **BLACKFRIDAY30**（11/18 – 12/15, 2026）。14 天免費試用。 |
-| 📻 | [Tapelark](https://tapelark.com/black-friday/) | 錄製網路電台，每首歌一個檔案，也可排程錄製，並可錄製公開清單中的電視頻道、Podcast 以及任何應用程式的聲音，存入電腦上附有標籤的資料庫。支援 Mac、Windows 11 與 Linux。一次性買斷，無需帳號。僅供私人使用；受保護的串流絕不會被錄製。 | 一次性授權 **$10 OFF**：$39 → **$29**（另有 €29、CHF 29、£25），無需折扣碼（**11/27 – 11/30, 2026**）。每個系統一份授權；Tapelark Pro 不在折扣範圍內。 |
+| 📻 | [Tapelark](https://tapelark.com/black-friday/) | 錄製網路電台，每首歌一個檔案，也可排程錄製，並可錄製公開清單中的電影片道、Podcast 以及任何應用程式的聲音，存入電腦上附有標籤的資料庫。支援 Mac、Windows 11 與 Linux。一次性買斷，無需帳號。僅供私人使用；受保護的串流絕不會被錄製。 | 一次性授權 **$10 OFF**：$39 → **$29**（另有 €29、CHF 29、£25），無需折扣碼（**11/27 – 11/30, 2026**）。每個系統一份授權；Tapelark Pro 不在折扣範圍內。 |
 | 🛜 | [Ping](https://ping.neat.software/?ref=trungdq) | 原生 macOS 網站、API、伺服器和區域網路裝置運作時間監控工具。在選單列顯示即時狀態，並在發生故障或變慢時發送警示和 webhook。不使用第三方伺服器。 | Ping Pro 終身版 **40% OFF**，使用折扣碼 **NEATBF26**：~~$14.99~~ **$8.99**。11/20 – 12/2, 2026 |
 
 ⬆️ | [回到頂端](#目錄)
