@@ -66,3 +66,66 @@ def test_rewrite_anchors():
     en = ["- [🔥 Productivity ](#-productivity)", "## 🔥 Productivity"]
     zh = ["- [🔥 生產力 ](#-productivity)", "## 🔥 生產力"]
     assert rewrite_anchors(en, zh)[0] == "- [🔥 生產力 ](#-生產力)"
+
+
+from datetime import datetime
+from scripts.translate import assemble, disclaimer, render_readme, line_key as _k, TZ
+
+DOC = "## 🔥 Productivity\n\n| -- | --- |\n|  ⭐ | [A](https://a.com) | Fast app. | **BF26** |\n| <a href=\"https://a.com\"><img src=\"https://a.com/i.png\"></a> |\n"
+ZH = {"## 🔥 Productivity": "## 🔥 生產力", "|  ⭐ | [A](https://a.com) | Fast app. | **BF26** |": "|  ⭐ | [A](https://a.com) | 快速的 App。 | **BF26** |"}
+
+
+def fake(calls, table=ZH):
+    def tr(lines):
+        calls.append(list(lines))
+        return [table.get(l) for l in lines]
+    return tr
+
+
+def test_assemble_uses_cache_and_translates_misses():
+    cache, calls = {}, []
+    out1 = assemble(DOC, cache, fake(calls))
+    assert "## 🔥 生產力" in out1 and "快速的 App。" in out1
+    assert len(calls[0]) == 2
+    calls2 = []
+    out2 = assemble(DOC, cache, fake(calls2))
+    assert out2 == out1
+    assert all(c == [] for c in calls2)
+
+
+def test_assemble_keeps_english_on_invalid():
+    bad = dict(ZH)
+    bad["|  ⭐ | [A](https://a.com) | Fast app. | **BF26** |"] = "|  ⭐ | A | 快速的 App。 | **BF26** |"
+    cache = {}
+    out = assemble(DOC, cache, fake([], bad))
+    assert "| Fast app. |" in out
+    assert _k("|  ⭐ | [A](https://a.com) | Fast app. | **BF26** |") not in cache
+
+
+def test_assemble_passthrough():
+    out = assemble(DOC, {}, fake([]))
+    lines = out.split("\n")
+    assert lines[1] == "" and lines[2] == "| -- | --- |"
+    assert lines[4] == '| <a href="https://a.com"><img src="https://a.com/i.png"></a> |'
+    assert out.endswith("\n")
+
+
+T1 = datetime(2026, 11, 19, 23, 30, tzinfo=TZ)
+T2 = datetime(2026, 11, 20, 8, 0, tzinfo=TZ)
+
+
+def test_render_readme_keeps_old_when_body_same():
+    r1 = render_readme(None, "body\n", T1)
+    assert render_readme(r1, "body\n", T2) == r1
+
+
+def test_render_readme_bumps_time_on_change():
+    r1 = render_readme(None, "body\n", T1)
+    r2 = render_readme(r1, "body2\n", T2)
+    assert "2026-11-20 08:00" in r2 and r2.endswith("body2\n")
+
+
+def test_disclaimer_contents():
+    d = disclaimer(T1)
+    assert "https://github.com/trungdq88/Awesome-Black-Friday-Cyber-Monday" in d
+    assert "claude-sonnet-5-5" in d and "（UTC+8）" in d and "2026-11-19 23:30" in d
