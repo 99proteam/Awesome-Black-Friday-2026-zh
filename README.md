@@ -1,7 +1,7 @@
 > [!NOTE]
 > - 本清單為 [trungdq88/Awesome-Black-Friday-Cyber-Monday](https://github.com/trungdq88/Awesome-Black-Friday-Cyber-Monday) 的中文翻譯，僅供輔助閱讀。
 > - 翻譯由 Claude Sonnet 5.5（`claude-sonnet-5-5`）自動產生，建議搭配原版查看，如有歧異以原版為準。
-> - 中文版最後更新：2026-11-19 23:14（UTC+8）
+> - 中文版最後更新：2026-11-20 06:39（UTC+8）
 
 <!-- translation-body -->
 
@@ -94,6 +94,7 @@
 | 🔎 | [data-peek](https://www.datapeek.dev/pricing?utm_source=trungdq88) | 快速、以鍵盤操作為主的 SQL 用戶端，支援 macOS、Windows 與 Linux 上的 PostgreSQL、MySQL、SQL Server、SQLite 與 ClickHouse。憑證保存在作業系統鑰匙圈中，無遙測、無需帳號。個人使用免費。 | Pro（商業使用授權）**40% OFF**：~~$29/year~~ **$17.40/year**。折扣碼 **BF26PEEK**，結帳時自動套用。11/26 – 12/1, 2026。 |
 | 📧 | [MailScope](https://mailscope.app/blackfriday/) | 適用於 Mac 的原生電子郵件除錯工具。在開發用電子郵件送達使用者之前，先在本機攔截、預覽並檢查。 | 一次性 **$19 USD**（原價 $29，省 $10）。折扣碼 **bf2026** 已預先填入結帳連結。最多可用於兩台 Mac（macOS 14+），含 12 個月更新。**2026 年 11/18–11/30（美國太平洋時間）**。 |
 | 🐶 | [ServerDog](https://serverdog.app/#buy) | 原生 Mac 應用程式，可建立 VPS 伺服器、零停機部署 Laravel、PHP 與 Node 網站，並透過你自己的 SSH 進行監控。無託管面板，無訂閱。 | 買斷授權**最高 30% OFF**：標準版 ~~$99~~ **$69**（1 年更新），終身版 ~~$199~~ **$149**（終身更新）。無需折扣碼，結帳時自動套用。僅限前 100 份授權。 |
+| 📬 | [Mailflare](https://mailflare.co/macos#black-friday) | 可自行託管於 Cloudflare 或 Docker 的電子郵件、行事曆、預約與雲端硬碟（Drive）工作空間，並提供原生 Mac 郵件應用程式（Mailflare for macOS），同樣支援 Gmail、Outlook 與 iCloud。一次性買斷永久授權。 | Pro 與 Team 授權享 **40% OFF**，使用折扣碼 **TONYBF2026**，**2026 年 11 月 20 日 – 12 月 1 日**。Pro $29 → **$17.40**，Team $249 → **$149.40**。 |
 
 
 ⬆️ | [回到頂端](#目錄)
@@ -132,6 +133,8 @@
 | 🗄️ | [Seqora](https://seqora.dev/blog/black-friday/) | 適用於 macOS、Windows 和 Linux 的桌面資料庫用戶端，支援 PostgreSQL、MySQL、MariaDB、SQLite 和 SQL Server。免費方案無需帳號，也沒有時間限制；Pro 版新增 Plan 分頁、結構設計、結構比較、更長的結構歷史記錄和物件頁面。 | **Seqora Pro $5.99 → $2.99/月，前 3 個月**，之後 $5.99/月。無需折扣碼，結帳時會顯示。每位客戶限用一次。至 2026 年 12/6 |
 | 🖥️ | [Plomer](https://plomer.app) | 從您的 Mac、iPhone、Apple Watch 和 iPad 進行網站正常運作時間與網域監控。追蹤並監控您的網站、網路服務和網域。從您的應用程式傳送 <custom/> 事件，並在 Plomer 中接收。 | 年繳方案 **33% OFF**，使用折扣碼 `BLACKFRIDAY2026`。~~$59.99~~ **$41.99**。同一方案可用於 Mac、iOS、IPadOS 和 WatchOS。2026 年 11/19 – 12/7 |
 | 🧑‍💻 | [Fixa](https://fixa.dev/black-friday?utm_source=trungdq88&utm_medium=deal-list&utm_campaign=bf2026) | 擁有專屬雲端機器的 AI 軟體工程師：交給它一個 GitHub issue 或描述一項變更，它就會執行您的程式碼、撰寫修復與測試，並開啟 pull request。 | 年訂閱方案首年 **50% OFF**：Starter $96 → $48，Pro $240 → $120，使用折扣碼 **BLACKFRIDAY**（結帳時自動套用）。至 2026 年 12/1 太平洋時間晚上 11:59 |
+| ⌨️ | [1DevTool](https://1devtool.com/pricing?utm_source=tonybf) | 適用於 Mac、Windows 與 Linux 的 AI 程式開發代理桌面工作台：並排執行 Claude Code、Codex、Gemini CLI 與其他 CLI，以團隊方式向它們下達任務，內建瀏覽器、資料庫用戶端與 git。 | 一次性買斷 Pro 授權享 **50% OFF**，使用折扣碼 **BFDEALS50**：1 台裝置 ~~$29~~ **$14.50**，3 台 ~~$59~~ **$29.50**，5 台 ~~$89~~ **$44.50**。2026 年 11/19 – 11/29，限前 100 筆訂單。 |
+| 🖱️ | [Hoverify](https://tryhoverify.com/pricing?ref=Awesome-Black-Friday-Cyber-Monday) | 為網頁開發者打造的一體化瀏覽器擴充功能：在同一個工具列中檢查、編輯、測試、除錯、擷取並稽核任何網站，也能讓你的 AI 程式開發代理透過 MCP 使用相同的工具。支援 Chrome 與 Firefox。 | 所有方案享 **30% OFF**，結帳時自動套用，無需折扣碼：年繳 ~~$35~~ **$24.50**，終身 ~~$99~~ **$69.30**。**2026 年 11 月 20 日**開始 |
 
 
 ⬆️ | [回到頂端](#目錄)
@@ -259,6 +262,7 @@
 | 🎙️ | [Thinkdown](https://thinkdown.app) | 適用於 iPhone、iPad、Mac、Apple Watch 與網頁的 AI 語音日記與語音筆記。 | Pro 年訂閱首年 **33% OFF**：~~$59.99~~ **$39.99 USD**，無需折扣碼（App Store）。限新訂閱者，至 2026 年 12 月 31 日止。 |
 | 🖊️ | [Halopen](https://halopen.com/pricing/?ref=awesome-bf) | 原生 macOS 語音聽寫：按住 fn、開口說話，您說的內容就會輸入到任何應用程式的游標處，包括終端機與編輯器。預設為逐字轉錄，在 Apple Silicon 上可選擇裝置端轉錄。14 天試用，無需信用卡。 | 首次付款享 **30% OFF**，使用折扣碼 **HOLIDAY**（黑色星期五與假期特賣，即日起 – 12/31, 2026）：終身方案 ~~$499~~ $349.30，年繳方案 ~~$179~~ 首年 $125.30，月繳方案 ~~$19~~ 首月 $13.30 |
 | 🐦 | [Roost](https://roostmail.app/?utm_source=tonydinh&utm_campaign=bf2026) | 專為擁有多個收件匣的人設計的原生 Mac 郵件應用程式：Gmail、Outlook、iCloud、Zoho、Yandex、Fastmail 以及任何 IMAP 信箱，都集中在一個沉靜、以鍵盤為優先的視窗中。您的郵件只存放在自己的 Mac 上（沒有 Roost 伺服器），登入驗證碼會從瀏海處彈出，「稍後回覆」會在您準備好時把信件重新帶回來。 | 永久授權 **40% OFF**：~~$49~~ **$29**，一次付費，無需折扣碼。前 100 份的上市優惠價（剩 80 份），包含所有更新，最多可用於 3 台 Mac。可先免費試用 3 天。即日起至 2026/12/1 |
+| 🪶 | [Jot](https://sayjot.xyz/?ref=awesome-bf#pricing) | Mac 筆記收件匣。在任何應用程式中選取文字，連按兩下 Shift，就能變成你自己資料夾裡的純 Markdown 檔案。按住 fn 即可語音輸入，在瀏海區收到提醒，還能讓 Claude Code 或 Codex 透過 MCP 讀取你的筆記。無需帳號，無需同步。 | 一次性買斷授權享 **69% OFF**：1 台 Mac ~~$29~~ **$9**，3 台 Mac ~~$87~~ **$24**，10 台 Mac ~~$290~~ **$69**。無需折扣碼，結帳時自動套用。提供 3 天免費試用。2026 年 11/20 – 12/1。 |
 
 
 ⬆️ | [回到頂端](#目錄)
@@ -284,6 +288,7 @@
 | 🔳 | [QRGenie](https://qrgenie.app/black-friday) | 適用於 iPhone、iPad 與 Mac 的 QR code 產生器。QR code 在您的裝置上產生，且永不過期。可匯出 PNG、JPG、PDF 或 SVG，無浮水印。 | **買斷版 50% OFF**：~~$19.99~~ **$9.99**，2026/11/18 至 12/4。無需折扣碼 |
 | 📺 | [RSSTube](https://apps.apple.com/app/apple-store/id6828141995?pt=119343303&ct=bf26-trungdq88&mt=8) | 在 iPhone 和 iPad 上透過 RSS 追蹤 YouTube 頻道：只顯示你選擇的頻道，最新內容優先，沒有演算法、無需帳號、不追蹤。 | **64% OFF Premium 終身版**（一次性購買），**2026 年 11 月 27 日 – 12 月 1 日**。美國定價：**$24.99 → $8.99 USD**；各地區價格不同。App Store 價格會自動降價，無需折扣碼。最多五個頻道可免費使用。 |
 | 📝 | [Capture - Quick Notes](https://apps.apple.com/app/apple-store/id6458535284) | 在 iPhone、iPad 和 Mac 上一鍵記下想法與靈感，然後傳送到你喜愛的應用程式。 | **50% OFF 終身版**（一次性購買），**2026 年 11 月 23–30 日**。美國定價：**$19.99 → $9.99 USD**；各地區價格不同。無需折扣碼。 |
+| 🛡️ | [Kipzy](https://kipzy.app/?ref=Awesome-Black-Friday-Cyber-Monday) | 適用於 iPhone 的快速、注重隱私的網頁瀏覽器，內建廣告、追蹤器與彈出視窗封鎖功能、私密分頁及離線儲存影片功能。 | **Pro 終身版 50% OFF**（一次性購買），**2026 年 11 月 13–30 日**。美國定價：**$49.99 → $24.99 USD**；各地區價格可能不同。於 App Store 自動套用，無需折扣碼。 |
 
 
 ⬆️ | [回到頂端](#目錄)
@@ -302,6 +307,7 @@
 | 🗂️ | [Luckynote](https://luckynote.io/pricing) | 你所有收藏內容的家。Luckynote 會從 Instagram Reels、TikTok 影片和文章中擷取實用資訊——食譜、地點和重點——並在你需要時，連同你的筆記與檔案一併呈現。 | **Black Friday 2026** 首年年繳定價：Plus ~~$59.99~~ **$39.99**，Pro ~~$119.99~~ **$89.99**（USD）。優惠會在網頁結帳時自動套用；除非取消，兩種方案都將以正常年費續訂。 |
 | 🧽 | [Sponge](https://sponge.computer/pricing) | 本機優先的稍後閱讀資料庫。儲存文章與 PDF，然後在存放於你的 Mac 或 Linux 電腦上的資料庫中閱讀、標示重點並連結想法，並支援 Markdown 匯出。雲端同步免費額度為 2 MB（約 30 篇文章）；Sponge Plus 可將你的整個資料庫同步到網頁、Mac、iPhone 和 iPad。 | 使用折扣碼 **SPONGEBF26**，Sponge Plus 前 12 個月 **50% OFF**：網頁版 ~~$5~~ **$2.50**/月。限新訂閱者，2026 年 11/18 – 12/2（太平洋時間）。 |
 | 📑 | [TabHold](https://studiobluegrove.com/tabhold/?utm_source=github_trungdq88&utm_medium=referral&utm_campaign=bf2026) | 適用於 Chrome 和 Edge 的分頁儲存工具，會在你自己的磁碟上保留備份檔案。一鍵儲存整個視窗，還原時保留分頁群組，重新安裝後也能復原分頁。無需帳號，儲存分頁數量沒有限制；儲存、還原與檔案備份皆免費。 | 使用折扣碼 **BF2026**，TabHold Pro（一次性購買）**40% OFF**：~~$12.99~~ → **$7.79**。11/24 – 12/1 |
+| ⚡ | [UtilEngine](https://utilengine.com/?ref=Awesome-Black-Friday-Cyber-Monday) | 以鍵盤為優先的瀏覽器啟動器：在任何頁面按一個鍵即可開啟 AI 聊天、分頁與歷史記錄搜尋、已儲存的工作階段、文字片段，以及 60 多種日常工具。支援 Chrome、Brave 與 Edge，最多可用於 10 台裝置。一次性購買。 | 終身使用權享 **30% OFF**：一次性 ~~$49~~ **$34.30**，結帳時自動套用，無需折扣碼。**2026 年 11 月 20 日**開始 |
 ⬆️ | [回到頂端](#目錄)
 
 
@@ -315,6 +321,7 @@
 | 💬 | [Vinaa](https://www.vinaa.ai/?utm_source=awesome-black-friday) | macOS 原生 AI 聊天。可與雲端及本機模型對話，支援多視窗與分頁、MCP、提示詞範本、私密 iCloud 同步等功能。終身授權。 | 黑色星期五 **最高 45% OFF**：1 台 Mac $30，2 台 Mac $39，3 台 Mac $55（至 11/30, 2026） |
 | 🌀 | [Slashspace](https://www.slashspace.ai/?utm_source=tonybf) | 為視覺型思考者打造的節點式 AI 工具。在無限畫布上以節點方式與 ChatGPT、Claude、Gemini 及本機模型對話，可從任何回答分支，並並排比較模型。可使用您的 API 金鑰，或您的 ChatGPT 與 Claude 訂閱。支援 Mac、Windows、Linux。 | 使用折扣碼 **BF2026** 享 **51% OFF**，11/4 – 12/1, 2026：終身方案 ~~$249~~ $122.01，年繳方案 ~~$89~~ $43.61 |
 | 💎 | [Fluent 2](https://fluentmac.app/?ref=Awesome-Black-Friday-Cyber-Monday) | 不只是另一個聊天視窗：在任何應用程式中按下 ⌥Space，Fluent 就能根據你眼前的內容協助你。潤飾你正在撰寫的電子郵件、摘要網頁或 YouTube 影片、尋找更好的價格，或讓它代替你操作應用程式。聘請 AI 隊友，節省處理例行工作的時間，例如撰寫電子郵件或整理你的下載資料夾。可使用你已訂閱的 ChatGPT 或 Claude 方案、500+ 個模型或本機 AI。附桌面寵物。一次性購買。 | 使用折扣碼 **BF2026** 享 **25% OFF**，至 12/1：Basic ~~$49~~ $36.75 |
+| 📱 | [Pocket AI](https://mypocketai.app/?ref=awesome-black-friday) | 適用於 iPhone 與 iPad 的離線 AI 聊天。只需下載一次開源模型（Qwen、Llama、Gemma 等），之後無需網路與帳號即可聊天。提示詞與回覆都保留在你的裝置上。可免費下載。 | **Pro 終身版 30% OFF**（一次性購買），**2026 年 11 月 27–30 日**。美國定價：**$9.99 → $6.99 USD**；各地區價格可能不同。價格會在應用程式內自動調降，無需折扣碼。 |
 
 
 ⬆️ | [回到頂端](#目錄)
@@ -376,6 +383,7 @@
 | 🥞 | [Unmerge](https://unmerge.app/pricing?utm_source=awesome-bfcm&utm_medium=github&utm_campaign=bf2026) | 透過 AI 背景修補，將平面圖片、插畫和動漫角色圖拆分為可移動的透明 PSD 和 PNG 圖層（網頁應用程式 + API 與 MCP 伺服器）。 | 一次性、永不過期的點數包享 **+33%–35% 額外點數（每個圖層約 26% OFF）**：Starter $3.90（~~45~~ **60 點數**），Basic $10（~~130~~ **175 點數**）。自動套用，無需折扣碼。至 2026 年 12 月 1 日止 |
 | 🎨 | [AppScreenPro](https://appscreenpro.com/?utm_source=awesome-bf-2026) | 在瀏覽器中幾分鐘內製作 App Store 和 Google Play 截圖。一次付費，永久擁有。 | 使用 **30BF2026** 購買終身授權享 **30% OFF**：~~$29~~ → **$20.3**：2026 年 11/12 – 12/1。 |
 | ⛶ | [QRat](https://apps.apple.com/us/app/qrat-qr-code-generator/id1497158638?platform=mac) | 使用黑色星期五／聖誕節範本製作吸睛的 QR Code，提高掃描率。內含數百種範本，高度可自訂，提供 macOS 與 iOS 應用程式 | 終身授權 **50% OFF**：~~$10~~ $4.99。折扣碼 **BLACKFRIDAY2026**。請透過[此連結](https://apps.apple.com/redeem/?code=BLACKFRIDAY2026&ctx=offercodes&id=1497158638)兌換，11/16 – 12/1, 2026 |
+| 🖌️ | [1DesignTool](https://1designtool.com/?utm_source=tonybf#pricing) | 由你的程式開發代理（Claude Code、Codex 以及其他 14 種）驅動的本機設計工作室：投影片、應用程式畫面、3D 與品牌套件，具備即時預覽，並使用磁碟上的真實檔案。支援 macOS 與 Windows。 | 一次性買斷 Pro 授權享 **50% OFF**，使用折扣碼 **BFDEALS50**：1 台裝置 ~~$29~~ **$14.50**，3 台 ~~$59~~ **$29.50**，5 台 ~~$89~~ **$44.50**。2026 年 11/19 – 11/29，限前 100 筆訂單。 |
 
  ⬆️ | [回到頂端](#目錄)
 
@@ -404,6 +412,7 @@
 | 🟠 | [Skip the Pitch](https://skipthepitch.app/pricing?utm_source=awesome-bfcm) | 為網頁設計公司與自由工作者打造的桌面應用程式（Mac 與 Windows）。尋找網站不佳或沒有網站的在地商家，評估其網路形象，在您提案前使用您自己的 AI 帳號為每家商家製作專屬示範網站，並追蹤交易直到成交。 | Pro 與 Ultra 首月享 **50% OFF**，無需折扣碼（結帳時自動套用）：Pro ~~$50~~ $25，Ultra ~~$100~~ $50。之後恢復一般月費。僅限新客戶、月繳方案。11/16 – 11/30, 2026（太平洋時間晚上 11:59 結束） |
 | ✉️ | [Mailzzy](https://mailzzy.com/emails-savings-sale/?utm_source=github&utm_medium=deals&utm_campaign=bf2026) | 適合小型企業的電子郵件行銷：電子郵件範本與設計工具、AI 草擬的活動與主旨、A/B 測試、受眾分群、自動化與報表。也可在 Claude 與 ChatGPT 中使用（MCP）。 | 年繳方案首年 **70% OFF**（Standard ~~$97.20~~ $32.40/年），或月繳方案前 3 個月 **60% OFF**（Standard ~~$9~~ $3.60/月）。無需折扣碼，結帳時自動套用。價格以 500 位聯絡人計算；續約時恢復原價。適用於 Standard 與 Premium 的新訂閱。另提供 30 天免費試用。**11/16 – 12/14, 2026** |
 | 🎟️ | [HeySummit](https://heysummit.com/pricing?coupon=V3UlY3Iz&utm_source=awesome-bfcm&utm_medium=referral&utm_campaign=black_friday_2026) | 將您的專業知識化為工作坊或線上高峰會，讓更多新朋友認識您的作品。使用 HeySummit，您可以在幾分鐘內開放報名並開始售票。 | 新客戶訂閱年繳 Starter、Growth 或 Success 方案，**首年可省 40%**（年繳 Starter ~~US$390~~ US$234）。2026 年 11 月 19 日起至 11 月 30 日（GMT）可開始 14 天免費試用。此連結會自動套用折扣碼 `V3UlY3Iz`。無需信用卡。額外的與會者名額及續約將以標準價格收費。 |
+| 📹 | [HeyStream](https://heystream.com/pricing?coupon=BF2026) | HeyStream 協助行銷團隊舉辦品牌化的線上直播研討會與廣播，掌握觀眾訊號，並觸發更聰明的後續跟進。 | 新客戶若在 **2026 年 11 月 19 日至 30 日（含，GMT）**期間透過優惠連結開始七天試用，並選擇年繳 Launch、Growth 或 Scale 方案，即可享**首年 40% 折扣**。折扣碼 `BF2026`。年繳 Growth 方案首年為 US$1,072.80，之後每年 US$1,788，未含適用稅金。方案將以正常年費續訂。 |
 
 
 ⬆️ | [回到頂端](#目錄)
@@ -475,6 +484,7 @@
 | 🔒 | [OrbySystems](https://orbysystems.ai/offers) | 在您的筆電上執行的私人財務 AI。無需填寫表單：加入您的銀行和券商對帳單，約五分鐘內即可看到答案。包含支出、真實投資報酬和退休展望，每個數字都可追溯到對應的對帳單。提供免費的 Everyday 方案。 | 使用折扣碼 **BLACKFRIDAY26** Plus 和 Premium **75% OFF**：Plus ~~$49.95~~ **$12.49**，Premium ~~$249.95~~ **$62.49**（Premium 僅限美國）。涵蓋 2027 年及所有更早的對帳單年度。**即日起 – 11/30, 2026** |
 | 📈 | [Rearview](https://rearview.page/pricing/) | 在您的 Mac 上原生對整個投資組合（股票、ETF、加密貨幣、期貨和外匯）回測交易規則，並找出結果何時可能只是運氣。請自備資料；資料只會保留在您的 Mac 上。 | 使用折扣碼 **BLACKFRIDAY** 只要 **$199**，原價為 $349：一次性授權，含一年更新，無需訂閱。30 天免費試用，無需信用卡。**11/23 – 11/30, 2026**。 |
 | 📅 | [SubsDay](https://subsday.appps.od.ua) | 適用於 iOS 和 macOS 的視覺化訂閱日曆。追蹤定期付款並接收續訂提醒。 | 使用 **BLKFR2026**（[兌換](https://apps.apple.com/redeem?ctx=offercodes&id=6743316600&code=BLKFR2026)）**單人終身方案：$19.99 → $11.99 USD**；使用 **BLKFR2026FAMILY**（[兌換](https://apps.apple.com/redeem?ctx=offercodes&id=6743316600&code=BLKFR2026FAMILY)）**家庭終身方案：$26.99 → $15.99 USD**。**11/15 - 12/1, 2026**。 |
+| 🧸 | [Toffee](https://www.toffeefinance.com/?ref=Awesome-Black-Friday-Cyber-Monday) | 適用於 iPhone 與 Android 的債務還款規劃工具：新增你的債務，選擇雪球法或雪崩法，即可看到你的無債日期。 | Pro 終身版享 **50% OFF**，一次性購買：~~$59.99~~ **$29.99 USD**。於應用程式內自動套用，無需折扣碼。**2026 年 11/19 – 12/1** |
 
 
 ⬆️ | [回到頂端](#目錄)
@@ -535,6 +545,9 @@
 | 🎧 | [Countless: Push Up Counter](https://apps.apple.com/app/id6807464779) | iPhone 伏地挺身計數應用程式，透過 AirPods 的動作感應器計算每一次動作，手機可放在任何地方並關閉螢幕。計數功能免費且無需帳號；需要 iOS 26 與配備動作感應器的 AirPods。 | **Black Friday：** Pro 首年（年度方案）**50% OFF**：美國為 **$17.99 → $8.99 USD**；各地區價格不同。折扣碼 **COUNTLESSBF**（[在此兌換](https://apps.apple.com/redeem?ctx=offercodes&id=6807464779&code=COUNTLESSBF)）。限新訂閱者，**至 2026 年 12/1**。 |
 | 🦙 | [Terry: Pedometer Step Counter](https://apps.apple.com/app/id6818785615) | 有一隻駱馬陪您一起走路的計步器：多走路牠就會從圓滾滾變得健壯，偷懶的話牠又會變得有點圓。附每日目標圓環、每小時活動量與連續紀錄。 | 使用折扣碼 **TERRYBF**（[兌換](https://apps.apple.com/redeem?ctx=offercodes&id=6818785615&code=TERRYBF)），**Terry+ 年度方案首年 60% OFF**，**至 2026 年 12/31**。美國定價：首年 **$29.99 → $11.99 USD**；各地區價格不同。適用於新訂閱者或回流訂閱者。 |
 | 🏋️ | [Liftonic](https://liftonic.app) | 適用於 iPhone 與 Apple Watch 的 AI 重訓教練與訓練追蹤應用程式。 | 年度方案首年 **33% OFF**：~~$59.99~~ **$39.99 USD**，無需折扣碼（App Store）。限新訂閱者，至 2026 年 12/31。 |
+| 🥗 | [Nutrify - AI Calorie Tracker](https://nutrifytracker.com/api/go?store=auto&campaign=holiday_sale&source=awesome_bfcm&medium=deal_list) | 適用於 iPhone 與 Android 的卡路里與營養素追蹤器：拍下餐點照片，即可自動記錄卡路里與營養素。 | 新訂閱者**年繳方案首年 60% OFF**：~~$49.99~~ **$19.99 USD**，之後每年 $49.99。**終身版**：~~$99~~ **$79 USD**（一次性購買）。**2026 年 11 月 20 日 – 12 月 30 日**。於應用程式內自動套用，無需折扣碼。美國定價；各地區價格可能不同。 |
+| ⏳ | [Nomu - Intermittent Fasting](https://www.tappect.com/get/nomu) | 適用於 iPhone 與 Android 的間歇性斷食計時器：16:8、18:6、OMAD 或更長時間的斷食。依照你的作息進行並保留你的連續紀錄，無需帳號。出自最佳 AI 卡路里追蹤器 [Nutrify](https://nutrifytracker.com) 的團隊。 | 新訂閱者**年繳方案首年 57% OFF**：~~$29.99~~ **$12.99 USD**，之後每年 $29.99。**終身版**：~~$49.99~~ **$29.99 USD**（一次性購買）。**2026 年 11 月 20 日 – 12 月 30 日**。於應用程式內自動套用，無需折扣碼。美國定價；各地區價格可能不同。 |
+| 🏔️ | [Gymex](https://gymex.fitness/blackfriday?utm_source=awesome_bfcm&utm_medium=deal_list&utm_campaign=bf2026) | 適用於 iPhone 與 Android 的健身房訓練追蹤器，內建 AI 教練，會根據你自己的訓練、個人最佳紀錄與進度來回答。可免費使用；Core 增加課表分析、週期訓練與自動減量，Premium 則加入 AI 教練。 | **Black Friday：首度推出終身版**，一次付費，無需訂閱：Core **£30**（原價每月 £7.49），Premium **£60**（原價每月 £15）。或任何月繳方案前 6 個月享 **50% OFF**：Premium ~~£15~~ **£7.50**/月。折扣碼 **BLACKFRIDAY**，頁面上已自動套用。以英鎊計價。**至 2026 年 11 月 30 日英國時間 23:59 止**。 |
 
 
 ⬆️ | [回到頂端](#目錄)
@@ -557,5 +570,6 @@
 | ◆ | [Notch Hero](https://notchhero.com/buy.html?discount_code=NHBF202625OFF&utm_source=github&utm_medium=bf-list&utm_campaign=bf2026) | 一款位於 MacBook 瀏海旁的迷你放置型 RPG。你工作時，英雄就會自動戰鬥；Claude Code 與 Codex 的 token 可召喚精靈夥伴。原生 macOS 應用程式，可離線使用，無需帳號。 | 一次性授權使用折扣碼 **NHBF202625OFF** 享 **25.5% OFF**：~~$6.99~~ **$5.21**。至 12/1, 2026。 |
 | 💌 | [Long Distance: Your Couple App](https://apps.apple.com/app/id6757593531) | 適用於 iPhone 的情侶應用程式：你傳送的照片與塗鴉會顯示在伴侶的主畫面小工具上，另有共享筆記、倒數計時，以及你們各自在自己手機上作答的情侶問答。 | 使用折扣碼 **BLACKFRIDAY** 享 **Shared Premium Yearly 第一年 50% OFF**（一個方案涵蓋你們兩人）（[兌換](https://apps.apple.com/redeem?ctx=offercodes&id=6757593531&code=BLACKFRIDAY)），**至 12/31, 2026**。美國定價：第一年 **$49.99 → $24.99 USD**；各地區價格可能不同。適用於新訂閱者或回歸訂閱者。 |
 | 🎙️ | [Roads Audio](https://roadsaudio.com) | 與你所愛的人進行語音對話：有話想說時就錄音，每個人在有空時再收聽並回覆。支援 iPhone 與 Android。 | **Roads Audio Plus 終身版 $49.99**（一次性購買；12/2, 2026 將漲至 $99.99）。**11/26 – 12/1, 2026**。於應用程式內自動套用，無需折扣碼。美國定價；各地區價格可能不同。 |
+| 🗺️ | [Treader](https://www.treader.ca/pricing?utm_source=awesome-bfcm&utm_medium=deal-list&utm_campaign=bfcm2026) | 旅行規劃工具，朋友可以對日期投票，並在同一張即時地圖上一起規劃，提供逐日行程與免費的公路旅行工具。 | Pro 年繳方案首年享 **30% OFF**：~~$49.99~~ **$34.99 CAD**，之後每年以 $49.99 CAD 續訂，折扣碼 **BFRIDAY30**，2026 年 11/20 – 12/1 |
 
 ⬆️ | [回到頂端](#目錄)
