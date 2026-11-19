@@ -28,7 +28,7 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
       - name: Commit and push if changed
-        if: success() || failure()
+        if: always()
         run: |
           git add -- $(ls README.md translations.json 2>/dev/null)
           if git diff --cached --quiet; then echo "no changes"; exit 0; fi

@@ -237,3 +237,62 @@ def test_main_api_failure_exits_nonzero_keeps_readme(tmp_path, monkeypatch):
     assert tmod.main() == 1
     assert (tmp_path / "README.md").read_text(encoding="utf-8") == "old"
     assert (tmp_path / "translations.json").exists()
+
+
+# --- code-review + security fixes ---
+def test_assemble_retry_api_failure_not_pinned_english():
+    cache, n = {}, [0]
+    def tr(lines):
+        n[0] += 1
+        return ["|  ⭐ | A | 快 | **BF26** |"] if n[0] == 1 else [None]
+    out, failed = assemble(ROW + "\n", cache, tr)
+    assert failed == 1 and _k(ROW) not in cache
+
+
+def test_validate_rejects_structure_change():
+    assert not is_valid_translation("\t\t- [Tasks](#tasks)", "- [任務](#tasks)")
+    assert not is_valid_translation("#### Tasks", "### 任務")
+    assert not is_valid_translation("#### Tasks", "####任務")
+
+
+def test_validate_emoji_ranges():
+    assert is_valid_translation("| Fast app |", "| 快速𠀀 |")  # CJK Ext B is not emoji
+    assert not is_valid_translation("| ⏰ Fast |", "| 快速 |")
+
+
+def test_assemble_caps_lines_per_run():
+    doc = "\n".join(f"line {i} text" for i in range(30)) + "\n"
+    calls = []
+    def tr(lines):
+        calls.append(len(lines))
+        return [l.replace("text", "文字") for l in lines]
+    cache = {}
+    assemble(doc, cache, tr, max_lines=10)
+    assert sum(calls) == 10 and len(cache) == 10
+
+
+class MaxTokClient(FakeClient):
+    def create(self, **kw):
+        batch = json.loads(kw["messages"][0]["content"])
+        if len(batch) > 5:
+            self.calls += 1
+            return SimpleNamespace(content=[], stop_reason="max_tokens",
+                                   usage=SimpleNamespace(input_tokens=1, output_tokens=1))
+        return super().create(**kw)
+
+
+def test_translate_lines_splits_on_max_tokens():
+    res = tmod.translate_lines(MaxTokClient(), [f"l{i}" for i in range(20)], batch_size=20)
+    assert res == [f"zh:l{i}" for i in range(20)]
+
+
+def test_main_prunes_stale_cache(tmp_path, monkeypatch):
+    big = Path("tests/fixtures/upstream.md").read_text(encoding="utf-8")
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setenv("ANTHROPIC_API_KEY", "test")
+    (tmp_path / "translations.json").write_text(json.dumps({"stale": "x"}), encoding="utf-8")
+    monkeypatch.setattr(tmod, "fetch_upstream", lambda: big)
+    monkeypatch.setattr(tmod, "translate_lines", lambda client, lines: list(lines))
+    assert tmod.main() == 0
+    cache = json.loads((tmp_path / "translations.json").read_text(encoding="utf-8"))
+    assert "stale" not in cache and len(cache) > 100

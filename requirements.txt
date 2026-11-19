@@ -1,3 +1,3 @@
 anthropic==2.10.0
-pytest
-tzdata
+pytest==9.0.3
+tzdata==2026.1
