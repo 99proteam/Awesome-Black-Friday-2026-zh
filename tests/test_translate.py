@@ -43,3 +43,26 @@ def test_validate_rejects_lost_html_tag():
 
 def test_validate_allows_translated_prose_bold():
     assert is_valid_translation("- ⭐ **High quality deals only**: we review.", "- ⭐ **只收高品質優惠**：我們會審核。")
+
+
+from pathlib import Path
+import re
+from scripts.translate import heading_slugs, rewrite_anchors
+
+UP = Path("tests/fixtures/upstream.md").read_text(encoding="utf-8").splitlines()
+
+
+def test_slugs_match_upstream_toc():
+    slugs = {s for s in heading_slugs(UP) if s}
+    for a in re.findall(r"\]\(#([^)]+)\)", "\n".join(UP)):
+        assert a in slugs, a
+
+
+def test_slugs_dedupe_suffix():
+    assert heading_slugs(["## Tools", "x", "## Tools"]) == ["tools", None, "tools-1"]
+
+
+def test_rewrite_anchors():
+    en = ["- [🔥 Productivity ](#-productivity)", "## 🔥 Productivity"]
+    zh = ["- [🔥 生產力 ](#-productivity)", "## 🔥 生產力"]
+    assert rewrite_anchors(en, zh)[0] == "- [🔥 生產力 ](#-生產力)"
