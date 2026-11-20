@@ -1,7 +1,7 @@
 > [!NOTE]
 > - 本清單為 [trungdq88/Awesome-Black-Friday-Cyber-Monday](https://github.com/trungdq88/Awesome-Black-Friday-Cyber-Monday) 的中文翻譯，僅供輔助閱讀。
 > - 翻譯由 Claude Sonnet 5.5（`claude-sonnet-5-5`）自動產生，建議搭配原版查看，如有歧異以原版為準。
-> - 中文版最後更新：2026-11-20 06:39（UTC+8）
+> - 中文版最後更新：2026-11-20 11:54（UTC+8）
 
 <!-- translation-body -->
 
@@ -224,6 +224,8 @@
 | ✏️ | [Smultron](https://www.peterborgapps.com/smultron) | Smultron - 適合所有人的文字編輯器。Smultron 是一款功能強大又易於使用的文字編輯器。它快速、優雅，無論是日常寫作或正式程式碼都很舒適。無論小型或大型專案都同樣適用。 | **20% OFF** ~~$9.99~~ **$7.99**（自動套用）2026 年 11/23 – 11/30|
 | 🛞 | [Helix](https://tryhelix.app/?utm_source=github&utm_campaign=awesome-bfcm) | Mac 圓形選單。按住 Option + Space，你的工具就會以圓圈形式彈出：剪貼簿歷史記錄、截圖、媒體控制、視窗吸附、計時器和 Ask AI。一次性購買。 | **30% OFF** ~~$9~~ **$6.30** 一次性購買，可用於 2 台 Mac，使用折扣碼 **BLACKFRIDAY30**。7 天免費試用。**2026 年 11/20 – 12/1** |
 | ☁️ | [Dropshare](https://dropshare.app?utm_source=github&utm_campaign=awesome-bfcm) | 上傳檔案、分享連結，完成。將截圖、螢幕錄製和任何檔案上傳到你信任的儲存服務供應商，只需一個連結即可立即分享。 | **$29**，原價 $39（**省 $10**），一次性購買，可用於 3 台 Mac，優惠請見網站。 |
+| 🖥️ | [LaunchOS](https://launchosapp.com/?utm_source=awesome-bfcm&utm_medium=referral&utm_campaign=bf2026) | 適用於 macOS 26 (Tahoe) 的最佳 launchpad 替代方案。打造出瞬間熟悉、流暢自如，且威力超乎想像的使用體驗。 | 黑色星期五價格：**$5.40**（1 台 Mac）、**$8.10**（2 台 Mac）、**$13.50**（5 台 Mac），使用折扣碼 **BLACKFRIDAY2026** 可再額外享 **8% OFF**。目前價格 → 使用折扣碼後的最終價格：1 台 Mac **$6.60 → $4.97**，2 台 Mac **$9.90 → $7.45**，5 台 Mac **$16.60 → $12.42**。有效期間為 **2026 年 11 月 23 日 – 12 月 2 日**。 |
+| 🖥️ | [Trickster](https://tricksterapp.com) | 最近使用的檔案與連結，一手掌握 | **50% OFF**（~~$30~~ $15），至 11/30 止 |
 
 ⬆️ | [回到頂端](#目錄)
 
@@ -263,6 +265,7 @@
 | 🖊️ | [Halopen](https://halopen.com/pricing/?ref=awesome-bf) | 原生 macOS 語音聽寫：按住 fn、開口說話，您說的內容就會輸入到任何應用程式的游標處，包括終端機與編輯器。預設為逐字轉錄，在 Apple Silicon 上可選擇裝置端轉錄。14 天試用，無需信用卡。 | 首次付款享 **30% OFF**，使用折扣碼 **HOLIDAY**（黑色星期五與假期特賣，即日起 – 12/31, 2026）：終身方案 ~~$499~~ $349.30，年繳方案 ~~$179~~ 首年 $125.30，月繳方案 ~~$19~~ 首月 $13.30 |
 | 🐦 | [Roost](https://roostmail.app/?utm_source=tonydinh&utm_campaign=bf2026) | 專為擁有多個收件匣的人設計的原生 Mac 郵件應用程式：Gmail、Outlook、iCloud、Zoho、Yandex、Fastmail 以及任何 IMAP 信箱，都集中在一個沉靜、以鍵盤為優先的視窗中。您的郵件只存放在自己的 Mac 上（沒有 Roost 伺服器），登入驗證碼會從瀏海處彈出，「稍後回覆」會在您準備好時把信件重新帶回來。 | 永久授權 **40% OFF**：~~$49~~ **$29**，一次付費，無需折扣碼。前 100 份的上市優惠價（剩 80 份），包含所有更新，最多可用於 3 台 Mac。可先免費試用 3 天。即日起至 2026/12/1 |
 | 🪶 | [Jot](https://sayjot.xyz/?ref=awesome-bf#pricing) | Mac 筆記收件匣。在任何應用程式中選取文字，連按兩下 Shift，就能變成你自己資料夾裡的純 Markdown 檔案。按住 fn 即可語音輸入，在瀏海區收到提醒，還能讓 Claude Code 或 Codex 透過 MCP 讀取你的筆記。無需帳號，無需同步。 | 一次性買斷授權享 **69% OFF**：1 台 Mac ~~$29~~ **$9**，3 台 Mac ~~$87~~ **$24**，10 台 Mac ~~$290~~ **$69**。無需折扣碼，結帳時自動套用。提供 3 天免費試用。2026 年 11/20 – 12/1。 |
+| ✍️ | [Glifa](https://glifa.app/?ref=bf-awesome) | 可以隨意向它提問的 Mac Markdown 編輯器：AI 的修改會以提案形式呈現，讓你逐項保留或復原，並使用你已有的 AI（Claude Code、Codex、Apple Intelligence、本機模型或你自己的 API 金鑰）。純 .md 檔案，內建數學公式與 Mermaid 支援。 | **33% OFF**，無需折扣碼：~~$14.99~~ **$9.99** 一次性買斷，最多可用於 3 台 Mac。**2026 年 11/20 – 11/30**（太平洋時間） |
 
 
 ⬆️ | [回到頂端](#目錄)
@@ -485,6 +488,9 @@
 | 📈 | [Rearview](https://rearview.page/pricing/) | 在您的 Mac 上原生對整個投資組合（股票、ETF、加密貨幣、期貨和外匯）回測交易規則，並找出結果何時可能只是運氣。請自備資料；資料只會保留在您的 Mac 上。 | 使用折扣碼 **BLACKFRIDAY** 只要 **$199**，原價為 $349：一次性授權，含一年更新，無需訂閱。30 天免費試用，無需信用卡。**11/23 – 11/30, 2026**。 |
 | 📅 | [SubsDay](https://subsday.appps.od.ua) | 適用於 iOS 和 macOS 的視覺化訂閱日曆。追蹤定期付款並接收續訂提醒。 | 使用 **BLKFR2026**（[兌換](https://apps.apple.com/redeem?ctx=offercodes&id=6743316600&code=BLKFR2026)）**單人終身方案：$19.99 → $11.99 USD**；使用 **BLKFR2026FAMILY**（[兌換](https://apps.apple.com/redeem?ctx=offercodes&id=6743316600&code=BLKFR2026FAMILY)）**家庭終身方案：$26.99 → $15.99 USD**。**11/15 - 12/1, 2026**。 |
 | 🧸 | [Toffee](https://www.toffeefinance.com/?ref=Awesome-Black-Friday-Cyber-Monday) | 適用於 iPhone 與 Android 的債務還款規劃工具：新增你的債務，選擇雪球法或雪崩法，即可看到你的無債日期。 | Pro 終身版享 **50% OFF**，一次性購買：~~$59.99~~ **$29.99 USD**。於應用程式內自動套用，無需折扣碼。**2026 年 11/19 – 12/1** |
+| 💰 | [MoneyWiz](https://www.wiz.money/black-friday) | 適用於 Mac、iPhone 與 iPad 的個人理財軟體：預算、帳單預測、30 多種報表、投資管理，以及可選的銀行同步。僅支援 Apple 平台。 | 在官網使用折扣碼 **BFCM26**，標準版與進階版第一年享 **20% OFF**：標準版 **$29.99 → $23.99**，進階版 **$59.99 → $47.99**，進階版月繳第一個月 **$5.99 → $4.79**。以上為美國參考價格，各地區價格可能不同。僅限官網新購買；App Store 不提供此折扣；續約將以原價計費。**2026 年 11/13 – 12/1** |
+| 📈 | [Options Matrix Pro](https://www.optionsmatrixpro.com/black-friday) | 為散戶選擇權交易者打造的選擇權策略視覺化工具、掃描器與交易日誌。 | 所有方案皆享 **50% OFF**，無需折扣碼：年繳方案第一年（~~$100~~ $50 / ~~$300~~ $150 / ~~$500~~ $250），或月繳方案前 3 個月。**2026 年 11/23 – 11/30** |
+| 🪙 | [Cashculator](https://cashculator.app) | 看清楚你的錢花到哪裡去了，而不只是花去了哪裡 | **50% OFF**（~~$130~~ $65）終身版，至 11/30 止 |
 
 
 ⬆️ | [回到頂端](#目錄)
